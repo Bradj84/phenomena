@@ -1,7 +1,8 @@
 // Require the Client constructor from the pg package
 const { Client } = require('pg');
+require("dotenv").config('../.env')
 // Create a constant, CONNECTION_STRING, from either process.env.DATABASE_URL or postgres://localhost:5432/phenomena-dev
-const CONNECTION_STRING = new Client("postgres://postgres:password@localhost:6542/phenomena-dev");
+const CONNECTION_STRING = new Client(process.env.DATABASE_URL);
 // Create the client using new Client(CONNECTION_STRING)
 // Do not connect to the client in this file!
 const client = new Client(CONNECTION_STRING)
